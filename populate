@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if ! type "http" > /dev/null; then
+  echo "Need httpie installed"
+  pip install httpie
+fi
+
+echo "Starting"
+http :5000/test_a name="#1"
+http :5000/test_a name="#2"
+http :5000/test_a name="#3"
+http :5000/test_b name="#11" test_a_id:=1
+http :5000/test_b name="#12" test_a_id:=1
+http :5000/test_b name="#21" test_a_id:=2
+http :5000/test_b name="#22" test_a_id:=2
+http :5000/test_b name="#31" test_a_id:=3
