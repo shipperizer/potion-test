@@ -1,0 +1,33 @@
+version: '1'
+
+volumes:
+  potion-test: {}
+  potion-test-db: {}
+
+services:
+  potion-test:
+    image: shipperizer/potion-test:develop
+    environment:
+      - DB_HOST=172.17.0.1
+      - DB_PORT=5540
+      - DB_NAME=gateway_api
+    volumes:
+      - ./:/var/app
+      # ignore from sync
+      - /var/app/.git
+    ports:
+      - 9000:8888
+    depends_on:
+      - postgres-potion-test
+
+  postgres-potion-test:
+    image: postgres:9.4.5
+    ports:
+      - 5540:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=potion_test
+    restart: always
+    volumes:
+      - potion-test-db:/var/lib/postgresql
