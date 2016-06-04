@@ -13,6 +13,7 @@ services:
       - DB_NAME=potion_test
     volumes:
       - ./:/var/app
+      - ./env/lib/python3.5/site-packages/flask_potion/:/usr/local/lib/python3.4/site-packages/flask_potion/
       # ignore from sync
       - /var/app/.git
     ports:
