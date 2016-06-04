@@ -18,7 +18,7 @@ def create_app():
     SECRET_KEY = os.environ.get('SECRET_KEY', '123456')
     app = Flask(__name__)
     app.secret_key = SECRET_KEY
-    app.config['DEBUG'] = os.environ.get('DEBUG') is not None
+    app.config['DEBUG'] = True
     app.config['PROPAGATE_EXCEPTIONS'] = True
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://%s:%s@%s:%s/%s' % (
         DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME)
