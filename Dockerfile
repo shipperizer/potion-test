@@ -10,7 +10,7 @@ RUN apt-get update && apt-get -y install \
 
 WORKDIR /var/app
 
-COPY requirements.txt Makefile /var/app
+COPY requirements.txt Makefile /var/app/
 
 RUN make install
 
