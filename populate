@@ -6,11 +6,11 @@ if ! type "http" > /dev/null; then
 fi
 
 echo "Starting"
-http :5000/test_a name="#1"
-http :5000/test_a name="#2"
-http :5000/test_a name="#3"
-http :5000/test_b name="#11" test_a_id:=1
-http :5000/test_b name="#12" test_a_id:=1
-http :5000/test_b name="#21" test_a_id:=2
-http :5000/test_b name="#22" test_a_id:=2
-http :5000/test_b name="#31" test_a_id:=3
+http :5000/alpha name="#1"
+http :5000/alpha name="#2"
+http :5000/alpha name="#3"
+http :5000/beta name="#11" alpha_id:=1
+http :5000/beta name="#12" alpha_id:=1
+http :5000/beta name="#21" alpha_id:=2
+http :5000/beta name="#22" alpha_id:=2
+http :5000/beta name="#31" alpha_id:=3
