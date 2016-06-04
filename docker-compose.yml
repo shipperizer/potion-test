@@ -6,6 +6,9 @@ volumes:
 
 services:
   potion-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: shipperizer/potion-test:develop
     environment:
       - DB_HOST=172.17.0.1

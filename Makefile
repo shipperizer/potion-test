@@ -25,6 +25,3 @@ develop: migrate
 
 migrate:
 	$(PYTHON) manage.py db upgrade
-
-docker-build:
-	docker build --tag shipperizer/$(PROJECT):develop -f Dockerfile .
