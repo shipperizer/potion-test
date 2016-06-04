@@ -6,7 +6,7 @@ class Alpha(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
-    betas = db.relationship('TestB', backref='alpha')
+    betas = db.relationship('Beta', backref='alpha')
 
 
 class Beta(db.Model):
